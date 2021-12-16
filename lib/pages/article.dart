@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:like_button/like_button.dart';
+
+// ignore: todo
+// TODO, SORT ARTICLES BASED ON DATE (RECENTLY)
 
 
 class Article extends StatefulWidget {
@@ -8,412 +11,849 @@ class Article extends StatefulWidget {
 }
 
 class _ArticleState extends State<Article> {
-
+  bool isLiked = false;
+  bool isLiked2 = false;
+  bool isLiked3 = false;
+  bool isLiked4 = false;
+  bool isLiked5 = false;
+  bool isLiked6 = false;
+  bool isLiked7 = false;
+  bool isLiked8 = false;
+  bool isLiked9 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff81c684),
-        title: Text(
-          'Articles on Recycling',
-        style: TextStyle(
-          fontFamily: 'SourceSansPro',
-          fontSize: 25.0,
-        ),
+      backgroundColor: Colors.green[50],
+        body: CustomScrollView(
+          slivers:[
+            SliverAppBar(
+              floating: true,
+              title: Text(
+          'RECYCLING NEWS',
+              style: TextStyle(
+              fontFamily: "Josefin",
+              color: Colors.white,
+              fontWeight: FontWeight.w700, 
+              fontSize: 22
+          ),
         ),
         centerTitle: true,
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+            // All comments are used for navigation purpose
+            // A slivering app bar
+            // note to users: all of the buttons (including the heart emoji) are clickable :D
 
-      ),
-        body: Container(
-          child: ListView(
-            padding: const EdgeInsets.all(16.0),
-            children: [
-              GestureDetector(
-                onTap: _launchURL4,
-                child: Container(
-                  width: double.infinity,
-                  height: 260,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            width: double.infinity,
-                            height: 160,
-                            child: Image(image: AssetImage('assets/news4.jpg'))
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  'Brunei’s first mass produced toilet tissue,',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Center(
-                          child: Text(
-                            'made 100% from recycled paper',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Center(
-                            child: Text(
-                              'Date: August 19, 2020',
-                            )
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Expanded(
-                          child: Text(
-                            '    When Syidah Kariya and Tan Thiam Kui crossed paths in 2014 as colleagues in a consulting firm, they were aspiring professionals in their 20s in search of a greater calling beyond the nine-to-five.',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: _launchURL,
-                child: Container(
-                  width: double.infinity,
-                  height: 260,
-                  child: Card(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+            GestureDetector(
+              onTap: () {
+                  Navigator.pushNamed(context, '/N1');
+                  },
+              child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
                         children: [
-                              Container(
-                                  width: double.infinity,
-                                  height: 160,
-                                  child: Image(image: AssetImage('assets/news1.jpg'))
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Row(
+                          Stack(
                             children: [
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  'Recycling drive to reduce waste',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage1.jpeg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
                               ),
-                          ),
                             ],
-                      ),
-                          Divider(
-                           height: 1,
-                            thickness: 1,
                           ),
-                          Center(
-                              child: Text(
-                                'Date: February 8,2021',
-                              )
-                          ),
-                          Divider(
-                            height: 1,
-                            thickness: 1,
-                          ),
-                          Expanded(
-                            child: Text(
-                              ' Green Depot will conduct its seventh recycling drive at the Kuala Belait (KB) Sentral Shopping Centre on February 14 from 1pm to 4pm. The event is aimed...',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-          ],
-    ),
-    ),
-    ),
-    ),
-              SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: _launchURL4,
-                child: Container(
-                  width: double.infinity,
-                  height: 260,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            width: double.infinity,
-                            height: 160,
-                            child: Image(image: AssetImage('assets/news5.jpg'))
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Center(
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
                                 child: Text(
-                                  'No time to waste',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Center(
-                            child: Text(
-                              'Date: February 8, 2021',
-                            )
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Expanded(
-                          child: Text(
-                            '    In 2019, over 297,218 metric tonnes (MT) of waste was generated in Brunei Darussalam, of which only 11.3 per cent was recycled. The remainder mainly ended up in landfills.',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: _launchURL3,
-                child: Container(
-                  width: double.infinity,
-                  height: 260,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            width: double.infinity,
-                            height: 160,
-                            child: Image(image: AssetImage('assets/news3.jpg'))
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  'Report estimates drop in plastic recycled',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Center(
-                          child: Text(
-                            'in 2019',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Center(
-                            child: Text(
-                              'Date: June 23, 2021',
-                            )
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Expanded(
-                          child: Text(
-                            '    Slightly less scrap plastic from the U.S. was recycled in 2019 than the year prior. The data...',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: _launchURL2,
-                child: Container(
-                  width: double.infinity,
-                  height: 260,
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            width: double.infinity,
-                            height: 160,
-                            child: Image(image: AssetImage('assets/news2.jpg'))
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                'International Recycling Week',
+                                  ' From the field: "Climate-Smart"',
                                 style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'development in an uncertain world',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Center(
-                            child: Text(
-                              'Date: June 24, 2021',
-                            )
-                        ),
-                        Divider(
-                          height: 1,
-                          thickness: 1,
-                        ),
-                        Expanded(
-                          child: Text(
-                            ' Global inflationary pressures are in place, said panelists at a ferrous scrap roundtable session at the late June International Recycling Week online...',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                            ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '4th December 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0), //Special Grey Colour
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                      ],
-                    ),
-                  ),
+                        ],
+                      ),
                 ),
-              ),
-              SizedBox(
-                  height:10
-              ),
-        ],
+          ),
+    ),
+            ),
 
+    // News 1
 
+     GestureDetector(
+       onTap: () {
+                  Navigator.pushNamed(context, '/N2');
+                  },
+       child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage2.jpeg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' Rain to replace snow in the Arctic',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'as climate heats, study finds',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '30th November 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0), 
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+    ),
+     ),
+
+    // News 2
+
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N3');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage3.jpeg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' The environmental impact of',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'disposable diapers',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '5th December 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0), 
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
     ),
 
+    // News 3
+    
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N4');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage4.jpg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' Beach clean-up sees over',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    '1,000kg of rubbish collected ',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '12th July 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0),  
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
+    ),
+
+    // News 4
+
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N5');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage5.JPG')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' Storm Arwen: A rare sea turtle and seal',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'pups have washed up on UK beaches',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '4th December 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0), 
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
+    ),
+
+    // News 5
+
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N6');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage6.jpeg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' Environmental education tour',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'to Tenaga Suria Brunei',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '12th November 2020',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0), 
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
+    ),
+
+    // News 6
+
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N7');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage7.jpg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' 510 Sapling for Berakas',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'forest reserve',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '2nd April 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0),
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
+    ),
+
+    // News 7
+
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N8');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage8.jpg')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  ' Recycling drive to',
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    'reduce waste',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '3rd February 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0), 
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
+    ),
+
+    // News 8
+
+    GestureDetector(
+      onTap: () {
+                  Navigator.pushNamed(context, '/N9');
+                  },
+      child: Container(
+              margin: const EdgeInsets.symmetric(vertical:10),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
+                  child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.asset('assets/CoverImage9.png')),
+                              Positioned(
+                                top: 15,
+                                right: 15,
+                                child: Container(
+                                  width:50,
+                                  height:50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    border: Border.all(color: Color.fromRGBO(141, 141, 141, 1.0).withAlpha(40)),
+                                  ),
+                                  child: Center(
+                                    child: LikeButton(
+                                      size: 25,
+                                      isLiked: isLiked,
+                                      likeBuilder: (isLiked) {
+                                        final color = isLiked ? Colors.red : Colors.grey;
+                                        return Icon(Icons.favorite, color:color, size:25);
+                                      },
+                                      onTap: (isLiked) async {
+                                        this.isLiked = !isLiked;
+                                        return !isLiked;
+                                      }
+                                    ),
+                                  ),
+                              ), 
+                              ), 
+                            ],
+                          ),
+                          SizedBox(height:5),
+                          Column(
+                            children: [
+                              Center(
+                                child: Text(
+                                  " Mr Beast's #TeamSeas aims to clean",
+                                style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                      ),
+                                            ),
+                              ),
+                              Center(
+                                  child: Text(
+                                    '30 Million pounds of ocean trash',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Divider(height:10),
+                              Center(
+                                  child: Text(
+                                    '9th November 2021',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(141, 141, 141, 1.0),
+                                      fontSize: 16, 
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                ),
+            ),
+      ),
+    ),
+
+    // News 9
+
+
+          ],
+        ),
+            ),
+          ],
         ),
     );
-  }
-}
-
-_launchURL() async {
-  const url = 'https://borneobulletin.com.bn/recycling-drive-to-reduce-waste/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-_launchURL2() async {
-  const url = 'https://www.recyclingtoday.com/article/irw-ferrous-scrap-recycling-shipping-2021-steel-demand/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-_launchURL3() async {
-  const url = 'https://resource-recycling.com/recycling/2021/06/22/report-estimates-drop-in-plastic-recycled-in-2019/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-_launchURL4() async {
-  const url = 'https://resource-recycling.com/recycling/2021/06/22/report-estimates-drop-in-plastic-recycled-in-2019/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:environcycle_prototype/ExtraUtility/CornerIcon.dart';
 
 class Map extends StatefulWidget {
   @override
@@ -9,246 +10,239 @@ class _MapState extends State<Map> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff81c684),
-        title:
-        Text(
-            'Recycling Centres',
-        style: TextStyle(
-          fontWeight: FontWeight.normal,
-          fontSize: 25.0,
-          fontFamily: 'SourceSansPro',
-        )
-        ),
-
-        centerTitle: true,
-      ),
-    body: SingleChildScrollView(
-      child: Column(
+      backgroundColor: Colors.green[50],
+    body: ListView(
+      children: [
+        Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Belait',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 23.0,
-                  )
-                ),
+            SizedBox(height:10),
+            Row(
+                children: [
+                  SizedBox(width:10),
+                  GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: CornerIcon(
+                              height: 50,
+                              width: 50,
+                              child: Icon(
+                                Icons.keyboard_backspace, 
+                                color: Color.fromRGBO(48, 47, 48, 1.0), // Custom Black Colour
+                              ),
+                            ),
+                          ),
+                          SizedBox(width:35),
+                        Text(
+                          'RECYCLING CENTRES',
+                           style: TextStyle(
+                             fontFamily: "Josefin",
+                             letterSpacing: 1,
+                             color: Color.fromRGBO(48, 47, 48, 1.0),
+                             fontWeight: FontWeight.w700, 
+                             fontSize: 22
+                          ),
+                          ),
+                ]
               ),
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL6');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'Seri HK Recycling Company',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL4');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'CIC Environmental Services Sdn. Bhd.',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            //RL1
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                    'Tutong',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 23.0,
-                    )
-                ),
-              ),
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL8');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'EnEvo Sdn Bhd',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL7');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'Kawan Bumi Enterprise',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL5');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'Brucycle Company',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                    'Bandar Seri Begawan',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 23.0,
-                    )
-                ),
-              ),
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL2');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Row(
-                children:[
-                  Text(
-                      'Syarikat Perindustrian Dan Perkembangan...',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      softWrap: false,
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
+
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/Belait');
+                },
+                child: Container(
+                  margin: EdgeInsets.all(20),
+                  height: 150, 
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            'assets/KB.jpg',
+                            fit: BoxFit.cover
+                            ),
+                        ),
                       ),
-                      textAlign: TextAlign.left),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL1');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'Daikyo Environmental Recycling Sdn. Bhd.',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withOpacity(0.7),
+                                Colors.transparent,
+                              ],
+                            ),
+                          ), 
+                          ),
+                      ),
+                      Positioned(
+                        bottom: 5,
+                        child: Row(
+                          children: [
+                            SizedBox(width:15),
+                             Text(
+                               'Belait District',
+                               style: TextStyle(
+                                 fontFamily: "Josefin",
+                                 fontSize: 25, 
+                                 color: Colors.white,
+                               ),
+                               ),
+                          ],
+                        ),
+                      ),
+                     ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            //RL3
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL3');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'Sallima Recycling Works',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
+
+                    // Belait District
+
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/Tutong');
+                }, 
+                child: Container(
+                  margin: EdgeInsets.all(20),
+                  height: 150, 
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            'assets/tutong.jpg',
+                            fit: BoxFit.cover
+                            ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withOpacity(0.7),
+                                Colors.transparent,
+                              ],
+                            ),
+                          ), 
+                          ),
+                      ),
+                      Positioned(
+                        bottom: 5,
+                        child: Row(
+                          children: [
+                            SizedBox(width:15),
+                             Text(
+                               'Tutong District',
+                               style: TextStyle(
+                                 fontFamily: "Josefin",
+                                 fontSize: 25, 
+                                 color: Colors.white,
+                               ),
+                               ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/RL9');
-              },
-              icon: ImageIcon(
-                  AssetImage('assets/recycling_logo.png')
-              ),
-              label: Text(
-                'Aglobal Green Recycle',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
+
+          // Tutong District
+
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/BSB');
+                },
+                child: Container(
+                  margin: EdgeInsets.all(20),
+                  height: 150, 
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            'assets/BSB.jpg',
+                            fit: BoxFit.cover
+                            ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 120,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withOpacity(0.7),
+                                Colors.transparent,
+                              ],
+                            ),
+                          ), 
+                          ),
+                      ),
+                      Positioned(
+                        bottom: 5,
+                        child: Row(
+                          children: [
+                            SizedBox(width:15),
+                             Text(
+                               'Brunei-Muara District',
+                               style: TextStyle(
+                                 fontFamily: "Josefin",
+                                 fontSize: 25, 
+                                 color: Colors.white,
+                               ),
+                               ),
+                          ],
+                        ),
+                      ),
+                     ],
+                  ),
                 ),
               ),
-            ),
+
+              // BSB District
+
+              //here
     ],
       ),
+      ],
     ),
-      );
-
-
+            );
+// Map area for the selection of districts
 
   }
 }

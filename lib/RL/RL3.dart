@@ -1,3 +1,4 @@
+import 'package:environcycle_prototype/ExtraUtility/CornerIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -5,23 +6,45 @@ class RL3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xff81c684),
-          title: Text(
-              'Sallima Recycling Works',
-            style: TextStyle(
-              fontFamily: 'SourceSansPro',
-              fontSize: 25.0,
-            ),
-          ),
-          centerTitle: true,
-        ),
+      backgroundColor: Colors.green[50],
       body: Column(
+        children: [
+          SizedBox(height: 30),
+          Row(
+                children: [
+                  SizedBox(width:10),
+                  GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: CornerIcon(
+                              height: 50,
+                              width: 50,
+                              child: Icon(
+                                Icons.keyboard_backspace, 
+                                color: Color.fromRGBO(48, 47, 48, 1.0), // Custom Black Colour
+                              ),
+                            ),
+                          ),
+                          SizedBox(width:20),
+                        Text(
+                          'Sallima Recycling Works',
+                           style: TextStyle(
+                             fontFamily: "Josefin",
+                             letterSpacing: 1,
+                             color: Color.fromRGBO(48, 47, 48, 1.0),
+                             fontWeight: FontWeight.w700, 
+                             fontSize: 22,
+                          ),
+                          ),         
+                ]
+              ),
+               Column(
         children: [
           Align(
             alignment: Alignment.topLeft,
             child: Text(
-              '  Company:',
+              ' Company:',
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 26.0,
@@ -138,7 +161,25 @@ class RL3 extends StatelessWidget {
           ),
         ],
       ),
-
+       Row(
+        children: [
+          SizedBox(width:10),
+           Container(
+        width: 350,
+        height: 200,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+        fit: BoxFit.fill,
+        image: AssetImage(
+          './assets/RPIC3.jfif',
+        ),
+          ),
+        ),
+      ),
+        ],
+      )
+        ],
+      ),
     );
 
   }

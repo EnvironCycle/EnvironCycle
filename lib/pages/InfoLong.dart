@@ -32,6 +32,6 @@ class InfoLong extends StatelessWidget {
               ),
         )
     );
-
+//pictures on the long infos
   }
 }

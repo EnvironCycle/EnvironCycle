@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "762591023063",
+    "project_id": "environcycle",
+    "storage_bucket": "environcycle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762591023063:android:b29b3f71a35996cb58c592",
+        "android_client_info": {
+          "package_name": "ai5.example.environcycle_prototype"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762591023063-ieblmr3ligch7sc007k836nb2m0nrg5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI7HpNqa3OMpYLqaZfYPNt73QQPTk1mF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762591023063-ieblmr3ligch7sc007k836nb2m0nrg5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

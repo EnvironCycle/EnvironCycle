@@ -1,3 +1,4 @@
+import 'package:environcycle_prototype/ExtraUtility/CornerIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -5,19 +6,40 @@ class RL1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xff81c684),
-          title: Text(
-            'Daikyo Environmental Recycling Sdn. Bhd.',
-            style: TextStyle(
-              fontFamily: 'SourceSansPro',
-              fontSize: 25.0,
-            ),
-          ),
-          centerTitle: true,
-        ),
+      backgroundColor: Colors.green[50],
       body: Column(
         children: [
+          SizedBox(height: 30),
+          Row(
+                children: [
+                  SizedBox(width:10),
+                  GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: CornerIcon(
+                              height: 50,
+                              width: 50,
+                              child: Icon(
+                                Icons.keyboard_backspace, 
+                                color: Color.fromRGBO(48, 47, 48, 1.0), // Custom Black Colour
+                              ),
+                            ),
+                          ),
+                          SizedBox(width:35),
+                        Text(
+                          'Daikyo Environmental Recycling',
+                           style: TextStyle(
+                             fontFamily: "Josefin",
+                             letterSpacing: 1,
+                             color: Color.fromRGBO(48, 47, 48, 1.0),
+                             fontWeight: FontWeight.w700, 
+                             fontSize: 14
+                          ),
+                          ),
+                ]
+              ),
+              SizedBox(height:10),
           Align(
             alignment: Alignment.topLeft,
             child: Text(
@@ -59,7 +81,7 @@ class RL1 extends StatelessWidget {
             height: 5,
           ),
           Text(
-            '- Scrap Metals, Used Paper, Used Computers and    Used Plastics',
+            '- Scrap Metals, Used Paper, Used Computers and Used Plastics',
               style: TextStyle(
               color: Colors.black,
               fontSize: 17.0,

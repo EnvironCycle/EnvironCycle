@@ -33,6 +33,6 @@ class InfoShort extends StatelessWidget {
           ),
         )
     );
-
+// picutres on the short infos
   }
 }

@@ -21,22 +21,39 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+
+  cloud_firestore:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.7
   table_calendar: ^3.0.0
-  flutter_launcher_icons: ^0.8.1
+  flutter_launcher_icons: ^0.9.2
+  flutter_svg: ^0.23.0+1
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_native_splash: ^1.2.3
+  latlong2: ^0.8.1
+  geolocator: 7.6.2
+  like_button: ^2.0.4
+  shared_preferences: ^2.0.11
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter_link_preview: ^1.4.2
+
+flutter_native_splash: 
+  color: "#ffffff"
+  image: assets/splash_light.png
+  color_dark: "#1a1a1a"
+  image_dark: assets/splash_dark.png
+  android: true
+  ios: true
 
 flutter_icons:
   android: true
@@ -56,33 +73,94 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/background1.jpg
-      - assets/IconTransparent.png
-      - assets/recycling_logo.png
-      - assets/environcycle.png
-      - assets/environcycle2.png
-      - assets/icontrans2.png
-      - assets/imager2.jpg
-      - assets/background2.jpeg
-      - assets/news1.jpg
-      - assets/news2.jpg
-      - assets/news3.jpg
-      - assets/news4.jpg
-      - assets/news5.jpg
-      - assets/tip1.jpeg
-      - assets/tip2.jpeg
-      - assets/tip3.jpeg
-      - assets/logo.png
-      - assets/logo2.png
-      - assets/instagram.png
-      - assets/cbtllogo.jpg
-      - assets/GClogo.jpg
-      - assets/qrcode.jpeg
-      - assets/eclogonew.png
-      - assets/stip1.JPG
-      - assets/stip2.JPG
-      - assets/stip3.JPG
-
+    - assets/background1.jpg
+    - assets/IconTransparent.png
+    - assets/recycling_logo.png
+    - assets/environcycle.png
+    - assets/environcycle2.png
+    - assets/icontrans2.png
+    - assets/imager2.jpg
+    - assets/background2.jpeg
+    - assets/tip1.jpeg
+    - assets/tip2.jpeg
+    - assets/tip3.jpeg
+    - assets/logo.png
+    - assets/logo2.png
+    - assets/instagram.png
+    - assets/cbtllogo.jpg
+    - assets/GClogo.jpg
+    - assets/qrcode.jpeg
+    - assets/eclogonew.png
+    - assets/stip1.JPG
+    - assets/stip2.JPG
+    - assets/stip3.JPG
+    - assets/top_header.png
+    - assets/InfoIC.png
+    - assets/eclogonew2.jpg
+    - assets/environcyclenewest.jpg
+    - assets/InfoIcon.svg
+    - assets/ArticlesIcon.svg
+    - assets/LocationIcon.svg
+    - assets/EventsIcon.svg
+    - assets/InfoIcon2.svg
+    - assets/R1.svg
+    - assets/R2.svg
+    - assets/R3.svg
+    - assets/R4.svg
+    - assets/R5.svg
+    - assets/metal.svg
+    - assets/can.svg
+    - assets/News1P1.jpeg
+    - assets/News1P2.jpeg
+    - assets/News2P1.jpeg
+    - assets/News2P2.jpeg
+    - assets/News2P3.jpeg
+    - assets/News3P1.jpeg
+    - assets/News3P2.jpeg
+    - assets/News3P3.jpeg
+    - assets/News4P1.jpg
+    - assets/News5P1.jpeg
+    - assets/News5P2.jpeg
+    - assets/News6P1.jpeg
+    - assets/News6P2.jpeg
+    - assets/News7P1.jpg
+    - assets/News8P1.jpg
+    - assets/News9P1.jpeg
+    - assets/News9P2.jpeg
+    - assets/News9P3.jpeg
+    - assets/CoverImage1.jpeg
+    - assets/CoverImage2.jpeg
+    - assets/CoverImage3.jpeg
+    - assets/CoverImage4.jpg
+    - assets/CoverImage5.JPG
+    - assets/CoverImage6.jpeg
+    - assets/CoverImage7.jpg
+    - assets/CoverImage8.jpg
+    - assets/CoverImage9.png
+    - assets/KB.jpg
+    - assets/tutong.jpg
+    - assets/BSB.jpg
+    - assets/metal.png
+    - assets/oil.png
+    - assets/paper.png
+    - assets/plastic.png
+    - assets/computer.png
+    - assets/Battery.png
+    - assets/facts1.png
+    - assets/facts2.png
+    - assets/facts3.png
+    - assets/au1.png
+    - assets/au2.png
+    - assets/plastic.svg
+    - assets/paper.svg
+    - assets/computer.svg
+    - assets/oil.svg
+    - assets/battery.svg
+    - assets/cans.png
+    - assets/RPIC10.jpg
+    - assets/RPIC8.png
+    - assets/RPIC1.jpg
+    - assets/RPIC3.jfif
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -109,6 +187,15 @@ flutter:
     - family: SourceSansPro
       fonts:
         - asset: fonts/SourceSansPro-Light.ttf
+    - family: Mome
+      fonts:
+        - asset: fonts/mo_me.ttf
+    - family: More
+      fonts: 
+        - asset: fonts/mo_re.ttf
+    - family: Josefin
+      fonts: 
+        - asset: fonts/JosefinSans-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
